@@ -3,7 +3,7 @@ import floatingLogo from '@/assets/floating-logo.png';
 
 const FloatingLogo = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [velocity, setVelocity] = useState({ x: 2, y: 1.5 });
+  const [velocity, setVelocity] = useState({ x: 0.5, y: 0.3 });
 
   useEffect(() => {
     const updatePosition = () => {
