@@ -24,9 +24,13 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'screensaver-bg': 'hsl(var(--screensaver-bg))',
+				'screensaver-glow': 'hsl(var(--screensaver-glow))',
+				'logo-shadow': 'hsl(var(--logo-shadow))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -84,11 +88,60 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%': {
+						transform: 'translate(0px, 0px) rotate(0deg)'
+					},
+					'25%': {
+						transform: 'translate(30px, -40px) rotate(5deg)'
+					},
+					'50%': {
+						transform: 'translate(-20px, -60px) rotate(-3deg)'
+					},
+					'75%': {
+						transform: 'translate(-40px, -20px) rotate(2deg)'
+					},
+					'100%': {
+						transform: 'translate(0px, 0px) rotate(0deg)'
+					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.2), 0 0 60px hsl(var(--primary) / 0.1)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.3), 0 0 90px hsl(var(--primary) / 0.2)'
+					}
+				},
+				'drift': {
+					'0%': {
+						transform: 'translateX(0vw) translateY(0vh)'
+					},
+					'25%': {
+						transform: 'translateX(80vw) translateY(20vh)'
+					},
+					'50%': {
+						transform: 'translateX(60vw) translateY(80vh)'
+					},
+					'75%': {
+						transform: 'translateX(20vw) translateY(60vh)'
+					},
+					'100%': {
+						transform: 'translateX(0vw) translateY(0vh)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 8s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
+				'drift': 'drift 20s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-screensaver': 'var(--gradient-screensaver)',
+				'gradient-logo-glow': 'var(--gradient-logo-glow)'
 			}
 		}
 	},
