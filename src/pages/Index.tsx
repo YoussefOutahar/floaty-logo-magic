@@ -1,10 +1,45 @@
+import { useState, useEffect } from 'react';
 import FloatingLogo from '@/components/FloatingLogo';
 
+export type MovementMode = 'fixed' | 'screensaver' | 'centerFloat';
+
 const Index = () => {
+  const [movementMode, setMovementMode] = useState<MovementMode>('centerFloat');
+
+  // Keyboard controls to switch modes
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case '1':
+          setMovementMode('fixed');
+          break;
+        case '2':
+          setMovementMode('screensaver');
+          break;
+        case '3':
+          setMovementMode('centerFloat');
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-screensaver overflow-hidden cursor-none">
-      <FloatingLogo />
+      <FloatingLogo mode={movementMode} />
       
+      {/* Mode indicator and controls */}
+      <div className="fixed bottom-4 left-4 text-screensaver-text/60 text-sm font-mono">
+        <div className="mb-2">Mode: {movementMode}</div>
+        <div className="space-y-1 text-xs">
+          <div>Press 1: Fixed center</div>
+          <div>Press 2: Screensaver</div>
+          <div>Press 3: Center float</div>
+        </div>
+      </div>
+
       {/* Ambient background elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" />
