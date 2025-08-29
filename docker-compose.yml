@@ -5,7 +5,7 @@ services:
             context: ./
             dockerfile: Dockerfile
         ports:
-            - "3000:80"
+            - "5178:80"
         security_opt:
             - no-new-privileges:true
         healthcheck:
