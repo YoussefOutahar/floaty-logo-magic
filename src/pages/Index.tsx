@@ -4,7 +4,7 @@ import FloatingLogo from '@/components/FloatingLogo';
 export type MovementMode = 'fixed' | 'screensaver' | 'centerFloat';
 
 const Index = () => {
-  const [movementMode, setMovementMode] = useState<MovementMode>('centerFloat');
+  const [movementMode, setMovementMode] = useState<MovementMode>('screensaver');
 
   const toggleFullscreen = async () => {
     try {
